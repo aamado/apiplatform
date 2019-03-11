@@ -1,0 +1,59 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Mortgage Details
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Questions Collection [/mortgages/{id}]
+
+### Get Mortgage Details [GET]
+
++ Response 200 (application/json)
+        
+            {
+                   "mortgageID":"1234",
+                   "customerID": "45434",
+                    "customerName": "john Doe",
+                    "DOB": "12-04-1984",
+                    "Amount": "50000",
+                    "NumInstallments": "360",
+                    "Insured": "Yes",
+                    "partnerID":"7309",
+                    "StartDate": "28-04-2019",
+                    "status": "ok"
+            }
+        
+
+### Create a New Mortgage [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+               "customerID": "45434",
+                "customerName": "Keys are sticking",
+                "DOB": "Customer reports that keys are sticking after spilling a sugar-laden soft-drink on it",
+                "Amount": "Tech Experts",
+                "NumInstallments": "46995",
+                "Insured": "We-fix-em Computer Services",
+                "partnerID":"7309",
+                "StartDate": "Lenovo Laptop Computer",
+        }
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /mortgages/2
+
+    + Body
+
+            {
+                "status": "ok",
+                "mortgageID":"1234"
+            }
